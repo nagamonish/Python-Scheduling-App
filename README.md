@@ -5,10 +5,3 @@ Helps students schedule their day based on how many assignments they have. Each 
 Built using Python, Flask, HTML, CSS, Bootstrap, and MySQL
 
 Developers: 
-  @nagamonish
-  @
-  @
-  @
-  @
-  @
-  @
