@@ -1,0 +1,5 @@
+*.flask linguist-detectable=true
+*.html linguist-detectable=true
+*.css linguist-detectable=true
+*.mysql linguist-detectable=true
+*.bootstrap linguist-detectable=true
