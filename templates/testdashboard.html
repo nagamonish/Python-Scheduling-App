@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--THis makes the navbar responsive -> data-toggle = "collapse"-->
+
+
+
+    <style>
+        #myModal1 {
+            height: 650px;
+            overflow-y: auto;
+        }
+        .content {
+            overflow: scroll;
+        }
+        #acc-icon, #acc-icon-txt {
+            color: white;
+            font-size: 18px;
+        }
+    </style>
+
+    </head>
+
+
+
+    <body class="content">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+          <a class="navbar-brand" href="#">GLHS Project Timeline Organizer </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">Meet the Team</a>
+              </li>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_authenticated %} <!-- ONLY CAN LOGOUT IF USER AUTHENTICATED -->
+                        <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}">Log in</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+        <br></br>
+
+        <h1 class="text-center">Online Scheduling Tool!</h1>
+        <h4 class="text-center">Plan Out Your Day Instantly. Try it Now! (If nothing is showing, you need to log in!)</h4>
+
+        <br></br>
+
+        <form>
+    {% if current_user.is_authenticated %}<!-- CHECKS if USER IS AUTHENTICATED, MOVE THIS UP TO VIEWING PLACE -->
+        <div class="d-flex justify-content-center">
+            <div class="form-group row text-center">
+              <div class="col-xs-2 text-center">
+                <label for="date">Due Date:</label>
+                <input class="form-control" name="date" type="date" style="text-align: center">
+
+                <br></br>
+
+                <label for="subject">Subject:</label>
+                <input class="form-control" name="subject" type="text" style="text-align: center" placeholder="Enter Subject">
+
+
+                <br></br>
+
+                <label for="hours">Estimate how many hours you need to work on assignment</label>
+                <input class="form-control" name="hours" type="number" style="text-align: center" >
+
+
+                <br></br>
+
+
+                <label for="daysoff">What days would you like off?</label>
+                <select name="daysoff" id="daysoff" class="text-center form-control" placeholder="Select the days">
+                  <option value=""></option>
+                  <option value="M">Monday</option>
+                  <option value="Tu">Tuesday</option>
+                  <option value="W">Wednsday</option>
+                  <option value="Th">Thursday</option>
+                  <option value="F">Friday</option>
+                  <option value="Sa">Saturday</option>
+                  <option value="Su">Sunday</option>
+                </select>
+
+                <br></br>
+
+                <!--<label for="day">Saturday or Sunday off:</label>-->
+                <!--<select name="day" id="day" class="text-center form-control" placeholder="Saturday or Sunday off?">-->
+                <!--  <option value=""></option>-->
+                <!--  <option value="1">Saturday</option>-->
+                <!--  <option value="2">Sunday</option>-->
+                <!--</select>-->
+
+                <!--<br></br>-->
+
+                <!--<label for="daysoff">List the days you want off:</label>-->
+                <!--<select name="daysoff" id="daysoff" class="text-center form-control" placeholder="Click the days you want off">-->
+                <!--  <option value=""></option>-->
+                <!--  <option value="1">Saturday</option>-->
+                <!--  <option value="2">Sunday</option>-->
+                <!--</select>-->
+
+                <!--<br></br>-->
+
+
+
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" action = "">Submit</button>
+              </div>
+            </div>
+        </form>
+    {% endif %}
+
+</div>
+    </body>
+</html>
+
+    </body>
+</html>
