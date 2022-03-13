@@ -11,10 +11,10 @@ app.config["DEBUG"] = True
 
 ##Sets up database
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-    username="afoxball",
-    password="python123",
-    hostname="afoxball.mysql.pythonanywhere-services.com",
-    databasename="afoxball$login",
+    username="",
+    password="",      #Username, Password, Hostname, and Database name will be shown only to contributors
+    hostname="",
+    databasename="",
 )
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
@@ -26,7 +26,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 ##Sets up the login system
-app.secret_key = "rithin is cool"
+app.secret_key = "" #Secret key will be shown only to contributors
 login_manager = LoginManager()
 login_manager.init_app(app)
 
